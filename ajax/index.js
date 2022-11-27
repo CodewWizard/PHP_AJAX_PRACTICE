@@ -1,4 +1,16 @@
 $(document).ready(function () { 
+        function load(){
+            $.ajax({
+                url:"display.php",
+                type:"POST",
+                success:function(data){
+                    $("#tableData").html(data);
+                }
+            })
+        }
+        load();
+
+
     $("#submit").click(function(temp){
         temp.preventDefault();
         // console.log('clicked');
@@ -12,14 +24,12 @@ $(document).ready(function () {
                 pass : p
             },
             success:function(response){
-                console.log("heh");
-                
                 if(response == 1){
+                    load();
                     $("#addForm").trigger("reset");
-                    alert("data added");
                 }
                 else{
-                    alert("data cant saved");
+                    alert("dara cant saved");
                 }
             }
         })
