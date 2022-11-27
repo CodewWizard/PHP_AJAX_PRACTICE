@@ -29,6 +29,15 @@
           top:15px;
         }
 
+        .delete-btn{
+          cursor: pointer;
+          background: red;
+          color:#fff;
+          border: 0;
+          padding: 4px 10px;
+          border-radius: 3px;
+        }
+
     </style>
 
   </head>
@@ -49,7 +58,6 @@
 <div id="error"></div>
 <div id="success"></div>
 
-<center> <h1>Data</h1></center> 
 <table  class="table" style="margin-left:500px; margin-top: 100px; margin-right:100px; width:700px;">
     <tr>
       <td id="tableData"></td>

@@ -1,4 +1,5 @@
 $(document).ready(function () { 
+    //ON PAGE LOAD
         function load(){
             $.ajax({
                 url:"display.php",
@@ -10,7 +11,8 @@ $(document).ready(function () {
         }
         load();
 
-
+    
+    //SUBMIT EVENT
     $("#submit").click(function(temp){
         temp.preventDefault();
         // console.log('clicked');
@@ -43,6 +45,32 @@ $(document).ready(function () {
             })
         }
     })
+
+    //DELETE EVENT
+    // we get this button dynamically from display.php thats why we use this method to get an event
+
+    $(document).on("click", ".delete-btn", function(){
+        var stdId = $(this).data("id");
+        var element = this;
+        
+        $.ajax({
+            url:"delete.php",
+            type:"POST",
+            data: {
+                id :stdId
+            },
+            success:function(response){
+                if(response == 1){
+                    $(element).closest("tr").fadeOut();
+                }
+                else{
+                    $("#error").html("Can't delete record").slideDown();
+                    $("#success").slideUp();
+                }
+            }
+        })
+    })
+
  })
 
 

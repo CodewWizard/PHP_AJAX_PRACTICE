@@ -12,12 +12,14 @@ if(mysqli_num_rows($result) > 0){
                 <tr>
                     <th> EMAIL </th>
                     <th> PASSWORD </th>
+                    <th> ACTIONS </th>
                 </tr>';
 
                 while($row = mysqli_fetch_assoc($result)){
                     $output .= "<tr>
                                     <td> {$row["email"]} </td>
                                     <td> {$row["pass"]} </td>
+                                    <td> <button class='delete-btn' data-id='{$row["id"]}'>Delete</button> </td>
                                 </tr>";
                 }
         $output .= '</table>';
