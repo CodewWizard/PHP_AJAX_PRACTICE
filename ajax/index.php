@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  
+    <style>
+        .success{
+          background: #DEF1D8;
+          color:green;
+          padding:10px;
+          margin: 10px;
+          display:none;
+          position:absolute;
+          right:15px;
+          top:15px;
+        }
+        .error{
+          background: #EFDCDD;
+          color:red;
+          padding:10px;
+          margin: 10px;
+          display:none;
+          position:absolute;
+          right:15px;
+          top:15px;
+        }
+
+    </style>
+
   </head>
   <body>
   <form id = "addForm" style="width: 500px; margin:auto; margin-top:30px;">
@@ -20,7 +45,10 @@
 
   <button type="submit" class="btn btn-primary" id = "submit">Submit</button>
 </form>
-   
+
+<div id="error"></div>
+<div id="success"></div>
+
 <center> <h1>Data</h1></center> 
 <table  class="table" style="margin-left:500px; margin-top: 100px; margin-right:100px; width:700px;">
     <tr>
