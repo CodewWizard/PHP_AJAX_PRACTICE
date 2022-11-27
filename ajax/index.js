@@ -34,7 +34,7 @@ $(document).ready(function () {
                     if(response == 1){
                         load();
                         $("#addForm").trigger("reset");
-                        $("#success").html("Data added").slideDown();
+                        $("#success").html("Data added !").slideDown();
                         $("#error").slideUp();
                     }
                     else{
@@ -53,24 +53,71 @@ $(document).ready(function () {
         var stdId = $(this).data("id");
         var element = this;
         
+        if(confirm("Do you really want to delete ?")){
+            $.ajax({
+                url:"delete.php",
+                type:"POST",
+                data: {
+                    id :stdId
+                },
+                success:function(response){
+                    if(response == 1){
+                        $(element).closest("tr").fadeOut();
+                    }
+                    else{
+                        $("#error").html("Can't delete record").slideDown();
+                        $("#success").slideUp();
+                    }
+                }
+            })
+        }
+    })
+
+    //show modal popup
+    $(document).on("click", ".edit-btn", function(){
+        $("#modal").show();
+        var studId = $(this).data("eid");
+        // alert(studId);
+        
         $.ajax({
-            url:"delete.php",
+            url:"editLoad.php",
             type:"POST",
-            data: {
-                id :stdId
+            data:{
+                id:studId
             },
-            success:function(response){
-                if(response == 1){
-                    $(element).closest("tr").fadeOut();
-                }
-                else{
-                    $("#error").html("Can't delete record").slideDown();
-                    $("#success").slideUp();
-                }
+            success:function(data){
+                $("#modal-form table").html(data);
             }
         })
     })
 
+    //Hide modal box
+    $("#close-btn").on("click", function(){
+        $("#modal").hide();
+    })
+
+    //SAVE UPDATED DATA
+    $(document).on("click", "#edit-submit", function(){
+        var editMail = $("#edit-mail").val();
+        var editPass = $("#edit-pass").val();
+        var editId = $("#edit-id").val();
+
+        $.ajax({
+            url:"update.php",
+            type:"POST",
+            data:{
+                mail : editMail,
+                pass : editPass,
+                id  : editId
+            },
+            success:function(data){
+                if(data == 1){
+                    $("#modal").hide();
+                    load();
+                }
+            }
+        })
+    })
  })
 
 
