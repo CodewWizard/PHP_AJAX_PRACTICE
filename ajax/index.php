@@ -111,7 +111,7 @@
 <div id="error"></div>
 <div id="success"></div>
 
-<table  class="table" style="margin-left:500px; margin-top: 100px; margin-right:100px; width:700px;">
+<table  class="table" style="margin-left: 430px; margin-top: 50px; margin-right:100px; width:700px;">
     <tr>
       <td id="tableData"></td>
     </tr>
