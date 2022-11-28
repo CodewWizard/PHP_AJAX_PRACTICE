@@ -81,11 +81,20 @@
 #edit-submit{
   margin-left: 80px;
 }
+#search-bar{
+  margin:20px;
+  margin-left: 600px;
+}
 
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   </head>
   <body>
+    <div id="search-bar">
+    <label for="exampleInputEmail1" class="form-label">Search</label>
+        <input type="text" id="search" class="form-control" autocomplete="off" style="width: 300px;">
+    </div>
+
   <form id = "addForm" style="width: 500px; margin:auto; margin-top:30px;">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email</label>

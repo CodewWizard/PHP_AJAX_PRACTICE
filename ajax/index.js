@@ -86,7 +86,7 @@ $(document).ready(function () {
                 id:studId
             },
             success:function(data){
-                $("#modal-form table").html(data);
+                $("#modal-form").html(data);
             }
         })
     })
@@ -115,6 +115,26 @@ $(document).ready(function () {
                     $("#modal").hide();
                     load();
                 }
+            }
+        })
+    })
+
+    //LIVE SEARCH
+    // keyup -- when a keyboard key is released.
+
+    $("#search").on("keyup", function(e){
+        // e.preventDefault();
+        console.log('keyup event');
+        var item = $(this).val();
+
+        $.ajax({
+            url:"live-search.php",
+            type:"POST",
+            data:{
+                searchItem : item
+            },
+            success:function (response) {
+                $("#tableData").html(response);
             }
         })
     })
